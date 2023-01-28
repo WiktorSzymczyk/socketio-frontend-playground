@@ -29,9 +29,11 @@ export default function Register() {
 
 	return (
 		<div>
+			<h1>Welcome</h1>
 			<form
 				className='flex flex-col justify-center items-center w-screen'
 				onSubmit={handleCreateUser}
+				id='formRegister'
 			>
 				<div className='flex flex-col space-y-4 pt-5 w-[15%]'>
 					<input
