@@ -1,4 +1,3 @@
-import e from 'express';
 import React, { useState, useEffect } from 'react';
 
 export default function Register() {
@@ -13,7 +12,7 @@ export default function Register() {
 			method: 'POST',
 			headers: {
 				'Access-Control-Allow-Origin': '*',
-				'Content-Type': 'text/plain',
+				'Content-Type': 'application/json',
 			},
 			body: JSON.stringify({
 				username,
@@ -22,6 +21,10 @@ export default function Register() {
 				password,
 			}),
 		});
+		setName('');
+		setUsername('');
+		setEmail('');
+		setPassword('');
 	}
 
 	return (
@@ -34,29 +37,33 @@ export default function Register() {
 					<input
 						type='text'
 						placeholder='Name'
-						className='p-2 border-2 rounded-md border-blue-700'
+						className='p-2 border-4 rounded-md border-blue-700'
 						onChange={(e) => setName(e.target.value)}
+						value={name}
 					/>
 					<input
 						type='text'
 						placeholder='Username'
-						className='p-2 border-2 rounded-md border-blue-700'
+						className='p-2 border-4 rounded-md border-blue-700'
 						onChange={(e) => setUsername(e.target.value)}
+						value={username}
 					/>
 					<input
 						type='text'
 						placeholder='Email'
-						className='p-2 border-2 rounded-md border-blue-700'
+						className='p-2 border-4 rounded-md border-blue-700'
 						onChange={(e) => setEmail(e.target.value)}
+						value={email}
 					/>
 					<input
 						type='text'
 						placeholder='Password'
-						className='p-2 border-2 rounded-md border-blue-700'
+						className='p-2 border-4 rounded-md border-blue-700'
 						onChange={(e) => setPassword(e.target.value)}
+						value={password}
 					/>
 				</div>
-				<button className='mt-5 text-xl text-white font-bold border-2 px-10 py-2 rounded-md border-blue-700'>
+				<button className='mt-5 text-xl text-white font-bold border-4 px-10 py-2 rounded-md border-blue-700'>
 					Login
 				</button>
 			</form>
