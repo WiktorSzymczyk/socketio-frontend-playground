@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PasswordStrengthMeter from './PasswordStrengthMeter';
 
 export default function Register() {
 	const [name, setName] = useState('');
@@ -25,11 +26,11 @@ export default function Register() {
 		setUsername('');
 		setEmail('');
 		setPassword('');
+		window.location.href = 'http://localhost:3000/login';
 	}
 
 	return (
-		<div>
-			<h1>Welcome</h1>
+		<div className='flex flex-col justify-center items-center w-screen h-min'>
 			<form
 				className='flex flex-col justify-center items-center w-screen'
 				onSubmit={handleCreateUser}
@@ -51,19 +52,20 @@ export default function Register() {
 						value={username}
 					/>
 					<input
-						type='text'
+						type='email'
 						placeholder='Email'
 						className='p-2 border-4 rounded-md border-blue-700'
 						onChange={(e) => setEmail(e.target.value)}
 						value={email}
 					/>
 					<input
-						type='text'
+						type='password'
 						placeholder='Password'
 						className='p-2 border-4 rounded-md border-blue-700'
 						onChange={(e) => setPassword(e.target.value)}
 						value={password}
 					/>
+					<PasswordStrengthMeter password={password} />
 				</div>
 				<button className='mt-5 text-xl text-white font-bold border-4 px-10 py-2 rounded-md border-blue-700'>
 					Login
